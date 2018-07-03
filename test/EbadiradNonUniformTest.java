@@ -3,7 +3,7 @@ class EbadiradNonUniformTest {
     int i1 = 2048; //4096;
     @org.junit.jupiter.api.Test
     void testDataBinary() {
-        int[] testdata = EbadiradNonUniform.TestDataBinary(i1);
+        Integer[] testdata = EbadiradNonUniform.TestDataBinary(i1);
         assertTrue(testdata.length == i1);
         int zeroCount = 0;
         int oneCount = 0;
@@ -26,11 +26,15 @@ class EbadiradNonUniformTest {
         }else{
             assertFalse(true);
         }
+        SelectionSort.sort(testdata);
+        assertTrue(SelectionSort.isSorted(testdata));
+        InsertionSort.sort(testdata);
+        assertTrue(InsertionSort.isSorted(testdata));
     }
 
     @org.junit.jupiter.api.Test
     void testDataRemainders() {
-        int[] testData = EbadiradNonUniform.TestDataRemainders(i1);
+        Integer[] testData = EbadiradNonUniform.TestDataRemainders(i1);
         int nTemp = i1;
         int arraySize = 0;
         while(nTemp > 0){
@@ -65,11 +69,16 @@ class EbadiradNonUniformTest {
             }
         }
 
+        SelectionSort.sort(testData);
+        assertTrue(SelectionSort.isSorted(testData));
+        InsertionSort.sort(testData);
+        assertTrue(InsertionSort.isSorted(testData));
+
     }
 
     @org.junit.jupiter.api.Test
     void testDataRandoms() {
-        int[] testData = EbadiradNonUniform.TestDataRandoms(i1);
+        Integer[] testData = EbadiradNonUniform.TestDataRandoms(i1);
         int countZero = 0;
         int countInt = 0;
         for(int i = 0; i < testData.length; i ++){
@@ -81,5 +90,9 @@ class EbadiradNonUniformTest {
         }
         assertTrue(countZero == countInt);
         assertTrue(countZero + countInt == i1);
+        SelectionSort.sort(testData);
+        assertTrue(SelectionSort.isSorted(testData));
+        InsertionSort.sort(testData);
+        assertTrue(InsertionSort.isSorted(testData));
     }
 }
